@@ -1,0 +1,45 @@
+form {
+    margin: 2% 10%;
+    padding: 2%;
+  }
+  form input {
+    display: block;
+  
+    padding: 7px;
+    border: 1px solid rgb(19, 16, 20);
+    border-radius: 5px;
+    width: 100%;
+  }
+  .select-div {
+    /* background-color: rebeccapurple; */
+    display: flex;
+    margin-top: 10px;
+    justify-content: space-between;
+  }
+  .select-div > div {
+    /* padding: 10px; */
+    /* background-color: rebeccapurple; */
+    /* width: 50%; */
+  }
+  .select-div > option {
+    padding: 10px;
+  }
+  select {
+    margin-right: 10px;
+    /* display: inline-block; */
+    padding: 7px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border: 1px solid rgb(19, 16, 20);
+    border-radius: 5px;
+  }
+  .error {
+    color: red;
+  }
+  .submit-btn {
+    margin-top: 20px;
+  }
+  .submit-btn:hover {
+    cursor: pointer;
+  }
+  
