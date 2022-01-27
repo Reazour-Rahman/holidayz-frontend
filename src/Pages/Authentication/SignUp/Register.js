@@ -66,7 +66,7 @@ const Register = () => {
   const saveUserInTheDb = (data) => {
     const user = { ...data };
     console.log(user, "from outside axios");
-    const api = "http://localhost:5000/users";
+    const api = "https://vast-chamber-83281.herokuapp.com/users";
     // const api = "https://fathomless-coast-82114.herokuapp.com/clientregister";
     axios.post(api, user).then((res) => {
       console.log(res, "inside axios");

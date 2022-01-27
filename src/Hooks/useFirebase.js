@@ -78,7 +78,7 @@ const useFirebase = () => {
   };
   // checking admin
   useEffect(() => {
-    const api = `http://localhost:5000/users/${user.email}`;
+    const api = `https://vast-chamber-83281.herokuapp.com/users/${user.email}`;
     axios.get(api).then((res) => {
       setAdmin(res.data.admin);
     });

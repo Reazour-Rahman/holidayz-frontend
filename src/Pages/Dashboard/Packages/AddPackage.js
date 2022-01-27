@@ -11,7 +11,7 @@ const AddPackage = () => {
     /* take input and send to server */
     const onSubmit = data => {
         //console.log(data)
-        axios.post('http://localhost:5000/blogs', data)
+        axios.post('https://vast-chamber-83281.herokuapp.com/blogs', data)
             .then(res => {
                 if (res.data.insertedId) {
                     swal("Good job!", "Successfully submitted!", "success");

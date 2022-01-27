@@ -22,7 +22,7 @@ const Packages = () => {
   const [deleted, setDeleted] = useState(null);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/blogs`)
+    fetch(`https://vast-chamber-83281.herokuapp.com/blogs`)
       .then((res) => res.json())
       .then((data) => {
         setPackages(data.products);
@@ -33,7 +33,7 @@ const Packages = () => {
   const handleDeleteOrder = (id) => {
     const proceed = window.confirm('Are you confirm to delete this item?');
     if (proceed) {
-        const url = `http://localhost:5000/blogs/${id}`
+        const url = `https://vast-chamber-83281.herokuapp.com/blogs/${id}`
         fetch(url, {
             method: 'DELETE'
         })

@@ -16,7 +16,7 @@ const Blogs = () => {
   const size = 10;
 
   useEffect(() => {
-    fetch(`http://localhost:5000/blogs?page=${page}&&size=${size}`)
+    fetch(`https://vast-chamber-83281.herokuapp.com/blogs?page=${page}&&size=${size}`)
       .then((res) => res.json())
       .then((data) => {
         setBlogs(data.products);
@@ -33,7 +33,7 @@ const Blogs = () => {
   const onSubmit = (data) => {
     //console.log(data)
     axios
-      .post("http://localhost:5000/blogs", data, (data.status = "pending"))
+      .post("https://vast-chamber-83281.herokuapp.com/blogs", data, (data.status = "pending"))
       .then((res) => {
         if (res.data.insertedId) {
           swal(
