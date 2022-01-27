@@ -214,9 +214,10 @@ const Header = () => {
                 <MenuItem onClick={handleCloseUserMenu}>
                   <Typography textAlign="center">Account</Typography>
                 </MenuItem>
-                {admin ?<MenuItem onClick={handleCloseUserMenu}>
+                {admin ?<Link to='/dashboard'>
+                  <MenuItem onClick={handleCloseUserMenu}>
                   <Typography textAlign="center">Dashboard</Typography>
-                </MenuItem>:
+                </MenuItem></Link>:
                 null}
                 {user?.email ? (
                   <MenuItem onClick={logOut}>
