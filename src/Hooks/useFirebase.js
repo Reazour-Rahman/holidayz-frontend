@@ -64,31 +64,26 @@ const useFirebase = () => {
   };
 
   const updateName = (name) => {
-    // console.log(name, "update name function");
     updateProfile(auth.currentUser, {
       displayName: name,
     })
       .then(() => {
         const newUser = { ...user, displayName: name }; // recommend
         setUser(newUser);
-        // console.log(newUser.displayName, "newuser");
-        // ...
+        
       })
       .catch((error) => {
-        // An error occurred
-        // ...
+        
       });
   };
   // checking admin
   useEffect(() => {
-    const api = `https://fathomless-coast-82114.herokuapp.com/checkadmin/${user.email}`;
+    const api = `http://localhost:5000/users/${user.email}`;
     axios.get(api).then((res) => {
-      // console.log(res.data)
-      // console.log(res.data.admin)
       setAdmin(res.data.admin);
     });
   }, [user.email]);
-  
+
   const logOut = () => {
     // console.log("logouttttt");
     signOut(auth)

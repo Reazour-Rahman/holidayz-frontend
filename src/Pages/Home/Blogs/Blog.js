@@ -8,9 +8,9 @@ import HoverRating from "./Rating";
 import './Blogs.css'
 import { Link } from "react-router-dom";
 
+
 const Blog = (props) => {
     const {_id, avgPrice, day, thumb, title, rating} = props.blog;
-    
   return (
     <div>
       <Card className="card-width">

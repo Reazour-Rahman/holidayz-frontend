@@ -3,25 +3,22 @@ import React, { useState } from "react";
 // import { Alert, Form } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import { useLocation, useNavigate, Link } from "react-router-dom";
-import Button from '@mui/material/Button';
-
-
+import Button from "@mui/material/Button";
+import swal from 'sweetalert';
 
 import "./Register.css";
 import useFirebase from "../../../Hooks/useFirebase";
 // React toastify
 
 const Register = () => {
-  // React Toastify
-
-  // React Toastify
   // Alert Bootstrap
   const [show, setShow] = useState(true);
   const [errorMessage, setErrorMessage] = useState("");
 
   const navigate = useNavigate();
   const location = useLocation();
-  const { setUser, handleUserRegister, updateName, setIsLoading } =useFirebase();
+  const { setUser, handleUserRegister, updateName, setIsLoading } =
+    useFirebase();
   // console.log(isLoading)
   const url = location.state?.from || "/";
   //hook form
@@ -59,9 +56,7 @@ const Register = () => {
     } else {
       setErrorMessage("password and confirm password did not matched ");
       setShow(true);
-
     }
-
 
     setUser(data);
     // console.log(data.email);
@@ -71,12 +66,12 @@ const Register = () => {
   const saveUserInTheDb = (data) => {
     const user = { ...data };
     console.log(user, "from outside axios");
-    const api = "https://fathomless-coast-82114.herokuapp.com/clientregister";
+    const api = "http://localhost:5000/users";
     // const api = "https://fathomless-coast-82114.herokuapp.com/clientregister";
     axios.post(api, user).then((res) => {
       console.log(res, "inside axios");
       if (res.data.insertedId) {
-        // alert("data inserted successfully");
+        swal("Success!", "Your registration has successfully registered!", "success");
         // notify();
         reset();
       }
@@ -86,8 +81,13 @@ const Register = () => {
   return (
     <div className="container">
       <form onSubmit={handleSubmit(onSubmit)} className="border ">
-
-        <Link to="/login" style={{ textDecoration: "none" }} ><Button variant="outlined" className=""> <h2>icon</h2> Back to Login</Button> <br /></Link>
+        <Link to="/login" style={{ textDecoration: "none" }}>
+          <Button variant="outlined" className="">
+            {" "}
+            <h2>icon</h2> Back to Login
+          </Button>{" "}
+          <br />
+        </Link>
         {/* <h2>Please Register Here</h2> */}
         {errorMessage ? (
           <div className="">

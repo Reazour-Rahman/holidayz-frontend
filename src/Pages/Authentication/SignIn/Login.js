@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 // import { Modal } from "react-bootstrap";
 import { useForm } from "react-hook-form";
-import { useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 // import Register from "../Register/Register";
 // import "../Register/Register.css";
@@ -30,9 +30,10 @@ const Login = () => {
 
     setIsLoading,
     loginWithEmailAndPassword,
+    admin
   } = useFirebase();
   // console.log(isLoading)
-  const url = location.state?.from || "/dashboard";
+  const url = location.state?.from || "/";
   //hook form
   const {
     register,
@@ -143,7 +144,9 @@ const Login = () => {
             className="mt-1 border-0 shadow-none ms-0 register-account-link"
             style={{ color: "blue" }}
           >
-            Need an account ? Register here
+            Need an account ? <Link to='/register'>
+            Register here
+            </Link>
           </p>
           {/* <div className="mt-2 text-primary"></div> */}
         </form>
